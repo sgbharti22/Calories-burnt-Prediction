@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+
+  <title>ML API </title>
+  <!-- <link rel="icon" type="image/x-icon" href="{{url_for('.static', filename='icon.ico')}}"> -->
+ <style>
+    body{
+      background-image: url({{url_for('static',filename='work.png')}});
+      background-repeat:no-repeat;
+      background-attached:fixed;
+      background-size:cover;
+      
+    }
+ </style>
+</head>
+
+<body style="background-image:work.png">
+ <div>
+	<h1>Calories Burnt Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="POST">
+
+<br>
+  <div id="design">
+      <label for="gen">Gender : </label>
+  <!-- <input type="text" id="gen" name="Gender" list="genid" placeholder="Gender" required="required" />
+  <datalist id="genid">
+    <option >male</option>
+    <option >female</option>
+  </datalist> -->
+
+      <br>
+      <input type="radio" id="MALE" name="Gender" value="male">
+      <label for="MALE">Male</label><br>
+      <input type="radio" id="FEMALE" name="Gender" value="female">
+      <label for="FEMALE">Female</label><br>
+      </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Age : </label>
+      <input type="number" name="Age" placeholder="Age" required="required" />
+    </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Height: </label>
+      <input type="number" step="any" name="Height" placeholder="Height" required="required" /> cm
+    </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Weight : </label>
+      <input type="number" step="any" name="Weight" placeholder="Weight" required="required" /> kg
+    </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Duration : </label>
+      <input type="number" step="any" name="Duration" placeholder="Duration" required="required" /> min
+    </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Heart Rate: </label>
+      <input type="number" step="any" name="Heart_rate" placeholder="Heart_rate" required="required" /> BPS
+      </div>
+      <br>
+      <br>
+      <div id="design">
+      <label>Body Temperature : </label>
+      <input type="number" step="any" name="Body_temperature" placeholder="Body_temperature" required="required" /> Celsius
+    </div>
+      
+      <br>
+      <br>
+      <div style="text-align:center;font-family: Papyrus, fantasy;">
+        <button type="submit" class="button">Predict</button>
+      </div>
+    </form>
+
+   <br>
+   <h2> {{ pt }}  Calories burnt !!!!!</h2>
+
+ </div>
+
+
+</body>
+</html>
